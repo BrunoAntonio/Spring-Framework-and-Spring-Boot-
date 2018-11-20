@@ -1,0 +1,4 @@
+#https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+server.port=8080
+geral.nome=Bruno  #Propriedade de SpringBoot criada, que não existe na aplicação
+value=Dois  #Propriedade de SpringBoot criada, que não existe na aplicação

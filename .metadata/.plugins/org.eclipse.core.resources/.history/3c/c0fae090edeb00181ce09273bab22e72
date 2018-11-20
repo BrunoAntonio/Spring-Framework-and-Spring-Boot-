@@ -1,0 +1,5 @@
+package com.bruno.manytoone.entities;
+
+public class Role {
+
+}

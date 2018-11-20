@@ -1,0 +1,10 @@
+package com.bruno.projecto1;
+
+public class BeanDev {
+	
+	//Construtor
+	public BeanDev() {
+		System.out.println("Configurações de dev");//para saber que classe é iniciada
+	}
+
+}

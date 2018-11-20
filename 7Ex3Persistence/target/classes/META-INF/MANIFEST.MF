@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: 7ManytoOne
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Bruno
+Implementation-Vendor-Id: com.bruno
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/7ManytoOne
+Created-By: Maven Integration for Eclipse
+

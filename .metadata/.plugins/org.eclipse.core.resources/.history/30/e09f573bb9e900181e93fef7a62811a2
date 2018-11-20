@@ -1,0 +1,2 @@
+O nome do meu utilizador é <p th:text="${user.name}"></p>
+<a href="/user">Voltar ao formulário</a>

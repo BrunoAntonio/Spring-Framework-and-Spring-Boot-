@@ -1,0 +1,14 @@
+package com.bruno.api.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.bruno.api.entities.UserMongo;
+
+public interface UserRepositoryMongo extends MongoRepository<UserMongo, Long> {
+	
+	
+	//https://docs.spring.io/spring-data/jpa/docs/2.1.2.RELEASE/reference/html/
+	UserMongo findByEmail (String email);
+	UserMongo findByNameIgnoreCase (String name);
+	UserMongo findByNameIgnoreCaseLike (String name);
+}

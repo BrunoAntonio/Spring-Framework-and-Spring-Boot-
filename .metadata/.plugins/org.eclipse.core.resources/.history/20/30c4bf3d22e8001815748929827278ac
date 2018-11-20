@@ -1,0 +1,20 @@
+/*
+package com.bruno.api.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.bruno.api.entities.UserSQL;
+
+public interface UserRepositorySQL extends JpaRepository<UserSQL, Long> {
+
+	//https://docs.spring.io/spring-data/jpa/docs/2.1.2.RELEASE/reference/html/
+	
+	@Query("select u from User u Where u.name like %?1%")
+	UserSQL findByNameLetters (String name);
+	
+	//Table 3
+	UserSQL findByEmail (String email);
+	UserSQL findByNameIgnoreCase (String name);
+}
+*/

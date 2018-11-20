@@ -1,0 +1,20 @@
+package com.bruno.projecto1;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class Bike implements Vehicle {
+
+	@Override
+	public void start() {
+		System.out.println("Iniciando bicicleta");
+		
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("Parando bicicleta");
+		
+	}
+
+}

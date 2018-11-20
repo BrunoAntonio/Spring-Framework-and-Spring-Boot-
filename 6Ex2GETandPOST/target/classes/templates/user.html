@@ -1,0 +1,24 @@
+
+<!-- Acessado via GET e envia via post o nome do user-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="#" th:action="@{/user}" th:object="${user}" method="post">
+	
+	<label>Name</label>
+	<input type="text" th:field="*{name}" />
+	
+	<label>Email</label>
+	<input type="text" th:field="*{email}" />
+	
+	<input type="submit" value="Enviar form" />
+	</form>
+	
+
+</body>
+</html>

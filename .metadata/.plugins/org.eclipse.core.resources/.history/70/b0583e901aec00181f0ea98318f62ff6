@@ -1,0 +1,44 @@
+package com.bruno.manytoone;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+import com.bruno.manytoone.Enums.StatusRole;
+import com.bruno.manytoone.entities.Role;
+import com.bruno.manytoone.entities.User;
+import com.bruno.manytoone.repositories.UserRepository;
+
+@Component
+public class Initializer implements ApplicationListener<ContextRefreshedEvent> {
+
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) { // dentro do metodo inserir o que se quer na base de
+																	// dados
+
+		Role role = new Role("Admin", StatusRole.ATIVO);
+		Role role1 = new Role("Aluno", StatusRole.ATIVO);
+
+		User user = new User();
+		user.setName("Bruno");
+		user.setEmail("bruno@gmail.com");
+		user.setRoles(Arrays.asList(role, role1));
+
+		this.userRepository.save(user);
+		
+		List <User> userList = this.userRepository.findAll();
+		
+		
+
+	}
+
+}

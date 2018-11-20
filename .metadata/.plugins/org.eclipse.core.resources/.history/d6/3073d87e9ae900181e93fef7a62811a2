@@ -1,0 +1,13 @@
+#Outra forma de definir propriedades
+
+my:
+  servers: 
+          - bruno.exemplo.pt
+          - sara.exemplo.pt
+ # No application.properties seria: 
+ # my.server=bruno.exemplo.pt
+ 
+  environments:
+          dev:
+              url: http://dev.example.com
+              name: Developer Setup

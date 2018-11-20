@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Página 2</title>
+</head>
+<body>
+<a ref="index.html">Home page</a>
+<h2>Essa é a segunda página</h2>
+
+</body>
+</html>

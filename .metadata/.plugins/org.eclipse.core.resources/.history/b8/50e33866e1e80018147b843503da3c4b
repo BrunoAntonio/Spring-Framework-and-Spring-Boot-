@@ -1,0 +1,16 @@
+package com.bruno.projecto1;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+@Configuration //Configuração
+@Profile("prod") //com o profile produção.tem de ser activo na application.properties
+public class ProdConfig {
+	
+	@Bean
+	public BeanProd beanProd() {
+		return new BeanProd();
+	}
+
+}

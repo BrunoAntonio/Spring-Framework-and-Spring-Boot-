@@ -1,0 +1,16 @@
+package com.bruno.api.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.bruno.api.entities.UserMongo;
+import com.bruno.api.entities.UserSQL;
+
+public interface UserRepositoryMongo extends JpaRepository<UserMongo, Long> {
+
+	@Query("select u from User u Where u.name like %?1%")
+	UserMongo findByNameLetters (String name);
+	
+	UserMongo findByEmail (String email);
+	UserMongo findByNameIgnoreCase (String name);
+}

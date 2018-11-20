@@ -1,0 +1,51 @@
+package com.bruno.api.config;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+import com.bruno.api.entities.UserMongo;
+import com.bruno.api.repository.UserRepositoryMongo;
+
+@Component
+public class DataInitializerMongo implements ApplicationListener<ContextRefreshedEvent> {
+
+	@Autowired
+	UserRepositoryMongo userRepositoryMongo;
+
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+
+		List<UserMongo> users = userRepositoryMongo.findAll();
+
+		if (users.isEmpty()) {
+			createUser("Bruno", "brunocardoso@gmail.com");
+			createUser("Tânia", "tania@gmail.com");
+			createUser("Sara", "Sara@gmail.com");
+		}
+		UserMongo user = userRepositoryMongo.findByNameIgnoreCaseLike("bru");
+		System.out.println(user.getName());
+		
+		UserMongo user1 = userRepositoryMongo.findByEmail("Sara@gmail.com");
+		System.out.println(user1.getName());
+
+		UserMongo user2 = userRepositoryMongo.findByNameIgnoreCase("tânia");
+		System.out.println(user2.getName());
+		
+		UserMongo user3 = userRepositoryMongo.findByEmailLetters("brunocardoso@gmail.com");
+		System.out.println(user3.getName());
+		
+		UserMongo user4 = userRepositoryMongo.findByNameLetters("sa");
+		System.out.println(user4.getName());
+
+	}
+
+	public void createUser(String name, String email) {
+		UserMongo user = new UserMongo(name, email);
+		userRepositoryMongo.save(user);
+	}
+
+}

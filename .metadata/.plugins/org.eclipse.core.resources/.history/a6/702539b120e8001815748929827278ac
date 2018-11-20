@@ -1,0 +1,23 @@
+package com.bruno.api.repository;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.bruno.api.entities.UserMongo;
+
+public interface UserRepositoryMongo extends MongoRepository<UserMongo, Long> {
+	
+	@Query("select u from User u Where u.name like %?1%")
+	UserMongo findByNameLetters (String name);
+	
+	//https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/
+	@Query("{ 'email' : ?0 }")
+	UserMongo findByEmailLetters (String email);
+	
+	//https://docs.spring.io/spring-data/jpa/docs/2.1.2.RELEASE/reference/html/
+	//Table 3
+	UserMongo findByEmail (String email);
+	UserMongo findByNameIgnoreCase (String name);
+	UserMongo findByNameIgnoreCaseLike (String name);
+}

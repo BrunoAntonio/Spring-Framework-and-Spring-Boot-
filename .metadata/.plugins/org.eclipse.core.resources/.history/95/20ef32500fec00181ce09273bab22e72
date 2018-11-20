@@ -1,0 +1,72 @@
+package com.bruno.manytoone;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+import com.bruno.manytoone.Enums.StatusRole;
+import com.bruno.manytoone.entities.Role;
+import com.bruno.manytoone.entities.User;
+import com.bruno.manytoone.repositories.RoleRepository;
+import com.bruno.manytoone.repositories.UserRepository;
+
+@Component
+public class Initializer implements ApplicationListener<ContextRefreshedEvent> {
+
+	@Autowired
+	private RoleRepository roleRepository;
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) { // dentro do metodo inserir o que se quer na base de
+																	// dados
+
+		Role role = new Role("Admin", StatusRole.ATIVO);
+
+		Role role1 = new Role("Aluno", StatusRole.INACTIVO);
+
+		this.roleRepository.save(role);
+		this.roleRepository.save(role1);
+
+		User user = new User();
+		user.setName("Bruno");
+		user.setEmail("bruno@gmail.com");
+		user.setRole(role);
+
+		User user1 = new User();
+		user1.setName("Sara");
+		user1.setEmail("sara@gmail.com");
+		user1.setRole(role);
+		// varios useres para 1 perfil
+		this.userRepository.save(user);
+		this.userRepository.save(user1);
+
+		List<Role> roles = this.roleRepository.findByStatus(StatusRole.ATIVO);
+		for (Role r : roles) {
+			System.out.println(r.getName());
+		}
+
+		//Criar os 1000 perfis
+		for (int i = 0; i < 1000; i++) {
+			this.saveRole("Admin", StatusRole.ATIVO);
+		}
+
+		for (int i = 0; i < 1000; i++) {
+			this.saveRole("Aluno", StatusRole.INACTIVO);
+		}
+		
+		
+
+	}
+
+	public void saveRole(String name, StatusRole status) { // Metodo para gravar os 1000 perfis
+		Role role = new Role(name, status);
+		this.roleRepository.save(role);
+	}
+
+}

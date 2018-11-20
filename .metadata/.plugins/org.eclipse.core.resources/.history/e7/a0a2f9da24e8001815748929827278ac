@@ -1,0 +1,12 @@
+package com.bruno.api.controllers;
+
+import org.springframework.stereotype.Controller;
+
+import com.bruno.api.repositories.UserRepository;
+
+@Controller
+public class UserController {
+
+	private UserRepository userRepository;
+	
+}

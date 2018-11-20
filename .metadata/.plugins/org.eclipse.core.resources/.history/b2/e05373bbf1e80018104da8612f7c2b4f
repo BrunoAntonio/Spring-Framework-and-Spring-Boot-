@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Projecto Spring</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>Nome</th>
+		</tr>
+	</table>
+
+</body>
+</html>

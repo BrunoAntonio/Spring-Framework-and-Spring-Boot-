@@ -1,0 +1,20 @@
+package com.bruno.web;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserController {
+
+	public List<User> getUser() {
+		List<User> users = new ArrayList<>();
+		User user = new User("Bruno", "bruno@gmail.com");
+
+		users.add(user);
+		return users;
+
+	}
+
+}

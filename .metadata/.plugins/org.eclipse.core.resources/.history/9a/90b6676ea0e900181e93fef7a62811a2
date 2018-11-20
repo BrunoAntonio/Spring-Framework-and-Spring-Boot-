@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Página 1</title>
+</head>
+<body>
+	<h2>Primeira página</h2>
+	<a ref "outrapágina.html">Clique para ir para a segunda página</a>
+
+</body>
+</html>

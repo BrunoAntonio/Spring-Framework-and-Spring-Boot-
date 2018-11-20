@@ -1,0 +1,9 @@
+package com.bruno.projecto1;
+
+import org.springframework.context.annotation.Bean;
+
+public class BeanDev {
+	
+	
+
+}

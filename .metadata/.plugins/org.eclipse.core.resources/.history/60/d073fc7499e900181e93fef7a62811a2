@@ -1,0 +1,7 @@
+#Outra forma de definir propriedades
+
+my:
+  server: bruno.exemplo.pt
+  
+ # No application.properties seria: 
+ # my.server=bruno.exemplo.pt
